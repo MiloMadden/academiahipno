@@ -81,8 +81,29 @@ const loginStudent = async(req, res)=>{
 
 }
 //==================================================
+
+const getStudent = async(req, res)=>{
+
+    const {id} = req.params
+
+    try {
+
+        const student = await Student.findById(id)
+        res.json({
+            ok: true,
+            student
+        })
+        
+    } catch (error) {
+        res.status(500).json({
+            error: err.message
+        })
+    }
+
+}
 module.exports = {
     getStudents, 
     postStudent, 
-    loginStudent
+    loginStudent, 
+    getStudent
 }

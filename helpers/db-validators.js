@@ -34,6 +34,7 @@ const emailExisteLogin = async(email)=>{
 
 }
 
+
 module.exports = {
     emailExiste, 
     roleExiste, 
