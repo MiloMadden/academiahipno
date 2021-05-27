@@ -34,9 +34,20 @@ const emailExisteLogin = async(email)=>{
 
 }
 
+const existeEstudiantePorId = async(id)=>{
+
+    const estudiante = await Student.findById(id)
+
+    if(!estudiante){
+        throw new Error('No existe el estudiante que buscas')
+    }
+
+}
+
 
 module.exports = {
     emailExiste, 
     roleExiste, 
-    emailExisteLogin
+    emailExisteLogin, 
+    existeEstudiantePorId
 }
