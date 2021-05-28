@@ -4,7 +4,7 @@ const generarToken = (student)=>{
 
     return new Promise((resolve, reject)=>{
 
-        const payload = student
+        const payload = {student}
         
         jwt.sign(payload, process.env.SECRETKEY, {
             expiresIn: '60d'
