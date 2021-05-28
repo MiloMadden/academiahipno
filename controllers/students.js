@@ -65,11 +65,10 @@ const loginStudent = async(req, res)=>{
         }
 
         // generar jwt
-        const token = await generarToken(student._id)
+        const token = await generarToken(student)
 
         res.json({
             ok: true,
-            student,
             token
         })
 
