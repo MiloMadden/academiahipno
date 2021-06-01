@@ -14,6 +14,7 @@ class Server {
         // middlewares
         this.middlewares()
 
+        this.app.set('view engine', 'ejs')
         // router
         this.routes()
     }
@@ -30,6 +31,9 @@ class Server {
 
     routes(){
         this.app.use('/api/students', require('../routes/students'))
+        this.app.get('*', function(req, res){
+            res.status(404).render('404');
+        });
     }
 
     listen(){
